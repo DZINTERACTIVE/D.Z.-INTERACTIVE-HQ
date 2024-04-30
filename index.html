@@ -1,0 +1,157 @@
+<html>
+
+<head>
+  <script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+  <script>
+
+    function start() {
+      sjs.open("target", 1000, 900);
+
+      var background = new sjs.Image("Images/colorgridbackground.png");
+
+      background.type = "background";
+      background.setSize(sjs.getWidth(), sjs.getHeight());
+
+      //Ttext
+      var title = new sjs.Text("D.Z. Interactive", 70, "Black");
+
+      title.type = "title";
+      title.offset(270, 20);
+
+      sjs.onHit("player", "title", function (player, title) {
+        sjs.bounceOff(player, title);
+      });
+
+
+
+      //Player Selector And Controls
+      var player = new sjs.Image("Images/white.png");
+
+      player.type = "player";
+      player.setSize(40, 40);
+      player.offset(100, 400);
+
+      sjs.keyDown(W_KEY, function () {
+        player.pushUp();
+      });
+
+      sjs.keyDown(S_KEY, function () {
+        player.pushDown();
+      });
+
+      sjs.keyDown(A_KEY, function () {
+        player.pushLeft();
+      });
+
+      sjs.keyDown(D_KEY, function () {
+        player.pushRight();
+      });
+
+      //Text Buttons & Collisions
+
+      var gmetxt = new sjs.Text("Our Games", 30, "Black");
+
+      gmetxt.type = "gmetxt";
+      gmetxt.offset(420, 200);
+
+      sjs.onHit("player", "gmetxt", function (player, gmetxt) {
+        sjs.bounceOff(player, gmetxt);
+        window.location = "ourgames.html";
+      });
+
+      var abouttext = new sjs.Text("About Us", 30, "Black");
+
+      abouttext.type = "abouttext";
+      abouttext.offset(439, 260);
+
+      sjs.onHit("player", "abouttext", function (player, abouttext) {
+        sjs.bounceOff(player, abouttext);
+        window.location = "aboutus.html";
+      });
+
+
+      //Our Games Button
+      var gmebtn = new sjs.Button("Our Games", function(){
+        window.location = "ourgames.html";
+      }); 
+      gmebtn.type = "gmebtn";
+      gmebtn.offset(450, 235);
+
+      //abtbutton
+
+      var abtbtn = new sjs.Button("About Us", function(){
+        window.location = "aboutus.html"
+      });
+      abtbtn.type = "abtbtn";
+      abtbtn.offset(460, 300);
+
+      //News Button & News Text
+
+      var newstxt = new sjs.Text("News", 30, "black");
+      
+      newstxt.type = "newstxt";
+      newstxt.offset(465, 320);
+
+      sjs.onHit("player", "newstxt", function(player, newstxt){
+        sjs.bounceOff(player, newstxt);
+        window.location = "news.html"
+      });
+      
+      var newsbtn = new sjs.Button("News", function(){
+        window.location = "news.html";
+      });
+
+      newsbtn.type = "newsbtn";
+      newsbtn.offset(475, 365);
+
+      //Directions Text
+
+      var dtext = new sjs.Text("WASD - Move square around & into text to go to the window. For mobile, just click the buttons below.", 20, "black");
+      dtext.type = "dtext";
+      dtext.centerH();
+
+      //Secret Game Thing
+
+      var blkball = new sjs.Image("Images/black.png");
+      
+      blkball.type = "blkball";
+      blkball.setSize(30, 30);
+      blkball.offset(100, 800);
+
+      sjs.onHit("blkball", "player", function(blkball, player){
+        sjs.bounceOff(blkball, player);
+      });
+
+      var place = new sjs.Image("Images/place.png");
+
+      place.type = "place";
+      place.setSize(50, 50);
+      place.offset(800, 800);
+
+      sjs.onHit("blkball", "place", function(blkball, place){
+        var donetxt = new sjs.Text("This was for nothing lol", 20, "white");
+        donetxt.type = "donetxt";
+        donetxt.offset(700, 720);
+      });
+
+
+
+
+
+
+
+
+
+    } //End Start
+
+
+
+
+  </script>
+</head>
+
+<body onload="start()">
+  <h1></h1>
+  <div id="target" style="margin:auto;background:black;""></div>
+        </body>
+</html>

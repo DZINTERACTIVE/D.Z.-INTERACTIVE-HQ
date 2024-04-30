@@ -1,0 +1,62 @@
+<html>
+
+<head>
+  <script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+  <script>
+
+    function start() {
+      sjs.open("target", 1000, 900);
+
+      var background = new sjs.Image("Images/colorgridbackground.png");
+
+      background.type = "background";
+      background.setSize(sjs.getWidth(), sjs.getHeight());
+
+      //Ttext
+      var title = new sjs.Text("Check the Discord for updates on this game!", 70, "Black");
+
+      title.type = "title";
+      title.center();
+
+      //BackText
+
+      var btext = new sjs.Text("<-- Back", 30, "black");
+      btext.type = "btext";
+      btext.top().left();
+
+      sjs.onHit("player", "btext", function(player, btext){
+        sjs.bounceOff(player, btext);
+        window.location = "ourgames.html";
+
+      //BackBtn
+
+      var bckbtn = new sjs.Button("Back", function(){
+        window.location = "ourgames.html";
+      });
+
+      bckbtn.type = "bckbtn";
+      bckbtn.offset(45, 30);
+
+
+      });
+
+
+
+
+
+
+
+
+    } //End Start
+
+
+
+
+  </script>
+</head>
+
+<body onload="start()">
+  <h1></h1>
+  <div id="target" style="margin:auto;background:black;""></div>
+        </body>
+</html>

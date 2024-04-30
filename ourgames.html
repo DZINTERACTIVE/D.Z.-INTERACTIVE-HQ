@@ -1,0 +1,107 @@
+<html>
+
+<head>
+  <script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+  <script>
+
+    function start() {
+      sjs.open("target", 1000, 900);
+
+      var background = new sjs.Image("Images/colorgridbackground.png");
+
+      background.type = "background";
+      background.setSize(sjs.getWidth(), sjs.getHeight());
+
+      //Ttext
+      var title = new sjs.Text("Our Games", 70, "Black");
+
+      title.type = "title";
+      title.centerH();
+
+      sjs.onHit("player", "title", function (player, title) {
+        sjs.bounceOff(player, title);
+      });
+
+
+      //Player Selector And Controls
+      var player = new sjs.Image("Images/white.png");
+
+      player.type = "player";
+      player.setSize(40, 40);
+      player.offset(100,400);
+
+      sjs.keyDown(W_KEY, function () {
+        player.pushUp();
+      });
+
+      sjs.keyDown(S_KEY, function () {
+        player.pushDown();
+      });
+
+      sjs.keyDown(A_KEY, function () {
+        player.pushLeft();
+      });
+
+      sjs.keyDown(D_KEY, function () {
+        player.pushRight();
+      });
+
+      //Text Buttons & Collisions
+
+      var gme1txt = new sjs.Text("Dunegon Crawler", 30, "Black");
+
+      gme1txt.type = "gme1txt";
+      gme1txt.offset(380, 200);
+
+      sjs.onHit("player", "gme1txt", function (player, gme1txt) {
+        sjs.bounceOff(player, gme1txt);
+        window.location = "dungeoncrawler.html";
+      });
+
+    //DC btn
+
+    var dcbtn = new sjs.Button("Dungeon Crawler", function(){
+      window.location = "dungeoncrawler.html";
+    });
+
+    dcbtn.type = "dcbtn";
+    dcbtn.offset(420, 250);
+
+
+    //BackText
+
+            var btext = new sjs.Text("<-- Back", 30, "black");
+      btext.type = "btext";
+      btext.top().left();
+
+      sjs.onHit("player", "btext", function(player, btext){
+        sjs.bounceOff(player, btext);
+        window.location = "index.html";
+      });
+
+      //BackBtn
+
+      var bckbtn = new sjs.Button("Back", function(){
+        window.location = "index.html";
+      });
+
+      bckbtn.type = "bckbtn";
+      bckbtn.offset(45, 30);
+
+
+
+
+
+    } //End Start
+
+
+
+
+  </script>
+</head>
+
+<body onload="start()">
+  <h1></h1>
+  <div id="target" style="margin:auto;background:black;""></div>
+        </body>
+</html>
