@@ -48,17 +48,6 @@
       });
 
       //Text Buttons & Collisions
-
-      var fullscreen = new sjs.Text("Play Dunegon Crawler", 50, "Black");
-
-      fullscreen.type = "fullscreen";
-      fullscreen.offset(250, 600);
-
-      sjs.onHit("player", "fullscreen", function (player, fullscreen) {
-        sjs.bounceOff(player, fullscreen);
-        window.location = "https://dwrecktz.github.io/DungeonCrawler/menu";
-      });
-
       var dtext = new sjs.Text("Dunegon Crawler is a game where you play through various levels, trying to get to the end door, which brings you to the next level. You play with differrent abilities, and you even have to dodge obstacles and enemies. Even though this game is simple, is it action   packed.", 40, "black");
 
       dtext.type = "dtext";
